@@ -3,6 +3,10 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 
+with st.sidebar:
+    st.title("Fertility rate analysis")
+    st.text("This page provides fertility rate analysis charts and tables, illustrating trends and patterns.")
+
 st.title("Fertility analysis 🍼")
 
 data = pd.read_csv("china.csv")
@@ -88,7 +92,7 @@ def fertility_rate_analysis():
 
     fertility_rate = pd.concat([birth, death])
 
-    figure = px.line(fertility_rate, x="Year", y="Rate", color="Type", title="Births and deaths in China", markers=True)
+    figure = px.line(fertility_rate, x="Year", y="Rate", color="Type", title="Births and deaths in China")
     st.write(figure)
     st.text("As we can see here, birth and death rates both almost tied for first place in 2022. This means the number of people passing away is increasing, while the number of people getting birth is decreasing.")
 

@@ -3,6 +3,10 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 
+with st.sidebar:
+    st.title("Population analysis")
+    st.text("This page provides population analysis charts and tables, illustrating trends and patterns.")
+
 st.title("Population analysis 🌆")
 
 data = pd.read_csv("china.csv")
@@ -39,12 +43,10 @@ def general_population_analysis():
     st.text("Now, we'll turn our attention to the trend of population density growth in China:")
 
     # Second chart
-    figure = px.line(data, x="Year", y="Population Density", title="Grow in population density")
+    figure = px.line(data, x="Year", y="Population Density", title="Grow in population density", markers=True)
     st.plotly_chart(figure, key="Second chart")
     st.text("The plot also shows a rise in population density since 1950, meaning more people are living in a given area.")
 
-
-def urban_rural_population_analysis():
     f_p = data.loc[0:30, "Year":"Life Expectancy"]
     s_p = data.loc[31:49, "Year":"Life Expectancy"]
     t_p = data.loc[50:72, "Year":"Life Expectancy"]
@@ -57,6 +59,16 @@ def urban_rural_population_analysis():
     2. 1981-1999 - years before and after the USSR collapse
     3. 2000-2022 - modern days in Chinese history
     """)
+
+    st.write("Code for these three periods:")
+
+    code = '''
+    f_p = data.loc[0:30, "Year":"Life Expectancy"]
+    s_p = data.loc[31:49, "Year":"Life Expectancy"]
+    t_p = data.loc[50:72, "Year":"Life Expectancy"]
+    '''
+
+    st.code(code, language="python")
 
     st.text("Let's begin by comparing the average urban and rural populations in China using a bar chart:")
 
@@ -125,6 +137,28 @@ def urban_rural_population_analysis():
     st.plotly_chart(figure, key="Fourth chart")
     st.text("It's evident that the urban population has grown since 1950, driven by people moving to cities for improved living conditions.")
     
+    increase_in_urban = pd.DataFrame(
+        {
+            "Year": [year for year in range(1950, 2023)],
+            "Increase": data["% Increase in Urban Population"]
+        }
+    )
+
+    figure = px.density_heatmap(increase_in_urban, x="Year", y="Increase")
+    st.write(figure)
+    st.text("It is interesting that urban population growth was most significant between 1980 and 2022.")
+
+    decrease_in_rural = pd.DataFrame(
+        {
+            "Year": [year for year in range(1950, 2023)],
+            "Increase": data["% Change in Rural Population"]
+        }
+    )
+
+    figure = px.density_heatmap(decrease_in_rural, x="Year", y="Increase")
+    st.write(figure)
+    st.text("Also, rural populations have experienced a consistent decline since 1950.")
+
     st.text("These pie charts illustrate the urban/rural population distribution in China for specific time periods:")
     figure = go.Figure()
 
@@ -180,7 +214,27 @@ def urban_rural_population_analysis():
     st.write(figure)
     st.text("The pie chart represents urban/rural population in period since 2000 to 2022")
 
-    # Some additional data here (do it tomorrow, not today)
+    code = '''
+    figure = go.Figure()
+
+    figure.add_trace(go.Pie(
+        labels=['Urban', 'Rural'],
+        values=[f_p["Urban Population % of Total Population"].mean(), f_p["Rural Population % of Total Population"].mean()],
+        marker=dict(colors=['blue', 'lightblue']),
+        textinfo='percent',
+        textposition='inside'
+    ))
+
+    figure.update_layout(
+        title_text='Urba/rural population 1950-1980',
+        showlegend=False
+    )
+
+    st.write(figure)
+    '''
+
+    st.text("Code for one of these pie charts:")
+    st.code(code, language="python")
 
 
 def first_hypothesis():
@@ -236,11 +290,8 @@ def first_hypothesis():
     st.text("As expected, we see a strong relationship between urban population and population density, indicating that larger cities are more crowded.")
 
 
-categories = st.selectbox("Select content to show", ["General population analysis", "Urban/Rural population analisys", "Hypothesis"])
-
-if categories == "General population analysis":
+categories = st.selectbox("Select content to show", ["Population analysis", "Hypothesis"])
+if categories == "Population analysis":
     general_population_analysis()
-elif categories == "Urban/Rural population analisys":
-    urban_rural_population_analysis()
 else:
     first_hypothesis()

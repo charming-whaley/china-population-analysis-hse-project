@@ -2,6 +2,12 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
+url = "https://www.kaggle.com/datasets/amritharj/population-of-china-19502022"
+
+with st.sidebar:
+    st.title("Main page")
+    st.markdown("This page provides information about the dataset. Check out the Kaggle dataset [here](%s)" % url)
+
 data = pd.read_csv("china.csv")
 data = data.astype("string")
 data = data.replace("Null", "0")
