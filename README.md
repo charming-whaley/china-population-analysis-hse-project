@@ -1,6 +1,6 @@
 ## 🇨🇳 China population analysis
 
-In my first year at HSE, I got to play around with a dataset from <a href="https://www.kaggle.com/">Kaggle</a>. Since I'm a history buff, you can guess what kind of data I snagged - demographics. I spend a whole month or so obessing over which country to pick, and finally settled on analyzing China's population.
+During my first year at HSE, I got to play around with a dataset from <a href="https://www.kaggle.com/">Kaggle</a>. Since I'm a history buff, you can guess what kind of data I snagged - demographics. I spend a whole month or so obessing over which country to pick, and finally settled on analyzing China's population.
 
 ## 💻 Technologies
 
