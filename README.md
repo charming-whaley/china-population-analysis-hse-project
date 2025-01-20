@@ -10,3 +10,10 @@ Here are technologies used in the project:
 <img align="left" alt="Anaconda" style="padding-right: 10px;" width="40" height="40" src="https://cdn.simpleicons.org/anaconda/44a833" />
 <img align="left" alt="Python Pandas" style="padding-right: 10px;" width="40" height="40" src="https://cdn.simpleicons.org/pandas/150458" />
 <img align="left" alt="Python Pandas" style="padding-right: 10px;" width="40" height="40" src="https://cdn.simpleicons.org/streamlit/ff4b4b" />
+<br />
+<br />
+<br />
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/6839a125-145b-490e-8730-6d489b4243cc" alt="fcs">
+</p>
+
