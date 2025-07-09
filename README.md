@@ -5,16 +5,16 @@
 <table align="center">
   <tr>
     <td align="center">
-      <img src="https://cdn.simpleicons.org/python/3776ab" width=""60px><br />Python
+      <img src="https://cdn.simpleicons.org/python/3776ab" width="60px"><br />Python
     </td>
     <td align="center">
-      <img src="https://cdn.simpleicons.org/anaconda/44a833" width=""60px><br />Anaconda
+      <img src="https://cdn.simpleicons.org/anaconda/44a833" width="60px"><br />Anaconda
     </td>
     <td align="center">
-      <img src="https://cdn.simpleicons.org/pandas/150458" width=""60px><br />Pandas
+      <img src="https://cdn.simpleicons.org/pandas/150458" width="60px"><br />Pandas
     </td>
     <td align="center">
-      <img src="https://cdn.simpleicons.org/streamlit/ff4b4b" width=""60px><br />Streamlit
+      <img src="https://cdn.simpleicons.org/streamlit/ff4b4b" width="60px"><br />Streamlit
     </td>
   </tr>
 </table>
